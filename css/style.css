@@ -1,0 +1,8 @@
+#videoDiv{
+    width: 886px;
+    height: 498px;
+}
+#videoDiv iframe{
+    width: 100%;
+    height: 100%;
+}

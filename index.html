@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Hate Youtube</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-body">
+    <nav class="d-flex justify-content-center p-3 gap-5 align-items-center">
+        <h1 class="text-danger text-center text-uppercase fw-bold ">I HATE YOUTUBE</h1>
+        <button id="themeToggler" class="btn btn-lg text-light rounded-circle ms-auto"
+        onclick="switchMode()"><i class="fa-regular fa-lightbulb "></i></button>
+    </nav>
+    <div class="container rounded-5 p-3" >
+        <h2 class="text-center text-uppercase my-3">Watch Youtube without opening to youtube</h2>
+        <div    id="videoContainer" class="d-flex justify-content-center align-items-center py-5">
+            <div id="videoDiv" class="rounded-5 shadow overflow-hidden"> 
+                <iframe width="886" height="498" src="https://www.youtube.com/embed/c0c1NmAfLuM?rel=0" title="اختصارات واسرار هتخليك محترف في استخدام VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div id="getIframe" class="row align-items-center gx-5 justify-content-center">
+            <div class="col-11">
+                <input type="text" id="iframeInput" placeholder="add Youtube link here" class="form-control rounded-pill border-danger">
+            </div>
+            <button class="btn btn-danger rounded-pill col-1"
+            onclick="showVideo()"> Show Video</button>
+        </div>
+    
+    </div>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
