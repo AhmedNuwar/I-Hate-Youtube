@@ -1,34 +1,53 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>We Hate Youtube</title>
+    <title>يسقط يوتيوب</title>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-body">
-    <nav class="d-flex justify-content-center p-3 gap-5 align-items-center">
-        <h1 class="text-danger text-center text-uppercase fw-bold ">I HATE YOUTUBE</h1>
-        <button id="themeToggler" class="btn btn-lg text-light rounded-circle ms-auto"
+    <nav class="d-flex justify-content-center p-3 gap-5 align-items-center ">
+        <h1 class="text-danger text-center text-uppercase fw-bold ">يسقط يوتيوب</h1>
+        <h2 class="text-center text-uppercase my-3">استفيد من يوتيوب دون أن يضرك</h2>
+        <button id="themeToggler" class="btn btn-lg text-light rounded-circle me-auto"
         onclick="switchMode()"><i class="fa-regular fa-lightbulb "></i></button>
     </nav>
-    <div class="container rounded-5 p-3" >
-        <h2 class="text-center text-uppercase my-3">Watch Youtube without opening to youtube</h2>
-        <div    id="videoContainer" class="d-flex justify-content-center align-items-center py-5">
-            <div id="videoDiv" class="rounded-5 shadow overflow-hidden"> 
-                <iframe width="886" height="498" src="https://www.youtube.com/embed/c0c1NmAfLuM?rel=0" title="اختصارات واسرار هتخليك محترف في استخدام VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="px-3 rounded-5">
+        <div id="videoContainer" class="row pb-3 px-5">
+            <div class="col-8 d-flex flex-column align-items-center gap-4 ps-1 pe-0">
+                <div id="videoDiv" class="rounded-5 shadow overflow-hidden"> 
+                    <iframe width="886" height="498" src="https://www.youtube.com/embed/c0c1NmAfLuM?rel=0" title="اختصارات واسرار هتخليك محترف في استخدام VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <!--  <div class="btnsDiv d-flex justify-content-end gap-2">
+                    <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="deleteFromHistory('${video.id}')">
+                    delete</button>
+                    <a href="#videoDiv" class="btn btn-sm btn-danger rounded-pill" 
+                    onclick="showVideoFromHistory('${video.url}')">Watch again</a>
+                </div> -->
+                <div id="getIframe" class="">
+                    <div class="row">
+                        <div class="col-10">
+                            <input type="text" id="iframeInput" placeholder="add Youtube link here" class="form-control rounded-pill border-danger">
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-danger rounded-pill w-100"
+                            onclick="showVideo()"> Show Video</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 p-0 ">
+                <div  class="">
+                    <!-- <h3 class="mb-3 fw-bold text-danger">Watch History</h3> -->
+                    <div id="historyDiv">
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div id="getIframe" class="row align-items-center gx-5 justify-content-center">
-            <div class="col-11">
-                <input type="text" id="iframeInput" placeholder="add Youtube link here" class="form-control rounded-pill border-danger">
-            </div>
-            <button class="btn btn-danger rounded-pill col-1"
-            onclick="showVideo()"> Show Video</button>
-        </div>
-    
     </div>
 
 
