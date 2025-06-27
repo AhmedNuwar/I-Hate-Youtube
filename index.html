@@ -3,30 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>يسقط يوتيوب</title>
+    <title>
+        
+        يسقط يوتيوب
+    </title>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-body">
-    <nav class="d-flex justify-content-center p-3 gap-5 align-items-center ">
-        <h1 class="text-danger text-center text-uppercase fw-bold ">يسقط يوتيوب</h1>
-        <h2 class="text-center text-uppercase my-3">استفيد من يوتيوب دون أن يضرك</h2>
-        <button id="themeToggler" class="btn btn-lg text-light rounded-circle me-auto"
-        onclick="switchMode()"><i class="fa-regular fa-lightbulb "></i></button>
+    <nav class="">
+        <div class="Mycontainer d-flex justify-content-between py-2 mb-3 align-items-center">
+            <div class="title">
+                <h1 class="text-danger  text-uppercase fw-bold">
+                    <i class="fa-solid fa-hand-fist"></i>
+                    يسقط يوتيوب
+
+                        <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+
+
+                </h1>
+                <h5 class="text-uppercase">استفيد من يوتيوب دون أن يضرك</h5>
+            </div>
+            <div class="d-flex align-items-center">
+                <button id="themeToggler" class="btn btn-lg text-light rounded-circle me-auto"
+                onclick="switchMode()"><i class="fa-regular fa-lightbulb "></i></button>
+            </div>
+        </div>
     </nav>
-    <div class="px-3 rounded-5">
-        <div id="videoContainer" class="row pb-3 px-5">
-            <div class="col-8 d-flex flex-column align-items-center gap-4 ps-1 pe-0">
+    <div class="Mycontainer">
+        <div id="videoContainer" class="row pb-3 gx-0 ">
+            <div class="col-md-8 d-flex flex-column gap-4 ">
                 <div id="videoDiv" class="rounded-5 shadow overflow-hidden"> 
                     <iframe width="886" height="498" src="https://www.youtube.com/embed/c0c1NmAfLuM?rel=0" title="اختصارات واسرار هتخليك محترف في استخدام VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-                <!--  <div class="btnsDiv d-flex justify-content-end gap-2">
-                    <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="deleteFromHistory('${video.id}')">
-                    delete</button>
-                    <a href="#videoDiv" class="btn btn-sm btn-danger rounded-pill" 
-                    onclick="showVideoFromHistory('${video.url}')">Watch again</a>
-                </div> -->
                 <div id="getIframe" class="">
                     <div class="row">
                         <div class="col-10">
@@ -39,13 +51,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 p-0 ">
+            <div class="col-md-4">
                 <div  class="">
-                    <!-- <h3 class="mb-3 fw-bold text-danger">Watch History</h3> -->
                     <div id="historyDiv">
                     </div>
                 </div>
-
+                
             </div>
         </div>
     </div>

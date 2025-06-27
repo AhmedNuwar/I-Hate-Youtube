@@ -61,7 +61,7 @@ function displayHistory(){
         let cartona = [];
         urlHistory.forEach(function(video){
             cartona += `
-            <div class="mb-3 bg-secondary-subtle rounded-5 p-3">
+            <div class="mb-3 bg-secondary-subtle rounded-5 p-3 shadow-sm">
                 <h5>
                 ${video.title}
                 <button class="btn btn-sm rounded-circle text-danger" onclick="changeVideoTitle('${video.id}')">
@@ -72,11 +72,13 @@ function displayHistory(){
                 <p>${video.url}</p>
                 <p>date: ${video.date}</p>
         
-                <div class="btnsDiv d-flex justify-content-end gap-2">
-                    <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="deleteFromHistory('${video.id}')">
-                    delete</button>
+                <div class="btnsDiv d-flex justify-content-between gap-2">
                     <a href="#videoDiv" class="btn btn-sm btn-danger rounded-pill" 
-                    onclick="showVideoFromHistory('${video.url}')">Watch again</a>
+                    onclick="showVideoFromHistory('${video.url}')">شاهد مجددا</a>
+                    
+                    <button class="btn btn-sm btn-danger rounded-circle" onclick="deleteFromHistory('${video.id}')">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
                 </div>
 
             </div>
