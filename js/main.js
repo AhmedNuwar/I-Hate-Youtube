@@ -2,9 +2,10 @@ const lastUrl = localStorage.getItem('lastUrl');
 const iframeInput = document.getElementById('iframeInput'); 
 const videoDiv = document.getElementById('videoDiv'); 
 const urlHistory = JSON.parse(localStorage.getItem('urlHistory') || '[]');
-const historyDiv = document.getElementById('historyDiv')
+const historyDiv = document.getElementById('historyDiv');
+let currentVideo;
 iframeInput.value = lastUrl ? lastUrl : "";
-videoDiv.innerHTML = localStorage.getItem('lastIframe')
+videoDiv.innerHTML = localStorage.getItem('lastIframe');
 
 function convertToEmbedUrl(youtubeUrl, msg) {
     const url = new URL(youtubeUrl);
@@ -22,7 +23,11 @@ function convertToEmbedUrl(youtubeUrl, msg) {
      
     // console.log('before unshift', urlHistory);
     if (!oldVideo){
-        urlHistory.unshift({id:videoId, url:youtubeUrl, title: "no title", date:new Date().toISOString()});
+        urlHistory.unshift(
+            {id:videoId, url:youtubeUrl,
+                 title: "بلا عنوان",
+                stopedAt: '0',
+                date:new Date().toISOString()});
         // console.log('after unshift', urlHistory);
         console.log('video is new');
         
@@ -38,7 +43,6 @@ function convertToEmbedUrl(youtubeUrl, msg) {
 
     return `https://www.youtube.com/embed/${videoId}`;
 } 
-
 function showVideo(){
     embedUrl = convertToEmbedUrl(iframeInput.value);
     if (!embedUrl) {
@@ -68,7 +72,12 @@ function displayHistory(){
                 <i class="fa fa-pen"></i>
                 </button>
                 </h5>
-                <p>id: ${video.id}</p>
+                <p>
+                توقف عند: <span class="me-1">${video.stopedAt}</span>
+                <button class="btn btn-sm text-danger" onclick="setStopTime('${video.id}')">    
+                <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                </p>
                 <p>${video.url}</p>
                 <p>date: ${video.date}</p>
         
@@ -97,6 +106,17 @@ function changeVideoTitle(id){
         let currentVideo = urlHistory.find(v => v.id == id);
         let newTitle = prompt('add new title');
         if(newTitle) currentVideo.title = newTitle;
+        urlHistory.splice(urlHistory.indexOf(currentVideo), 1, currentVideo)
+        console.log(urlHistory);
+        saveHistoryList();
+        displayHistory();
+    }
+}
+function setStopTime(id){
+     if(urlHistory){
+        let currentVideo = urlHistory.find(v => v.id == id);
+        let stopTime= prompt('اين توفقت؟');
+        if(stopTime) currentVideo.stopedAt = stopTime;
         urlHistory.splice(urlHistory.indexOf(currentVideo), 1, currentVideo)
         console.log(urlHistory);
         saveHistoryList();
@@ -132,5 +152,4 @@ function switchMode(){
     }
     htmlTag.setAttribute('data-bs-theme', newTheme)
 }
-
 displayHistory();
