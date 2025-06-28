@@ -12,13 +12,10 @@ body{
     margin: auto;
 }
 #videoDiv{
-    width: 886px;
-    height: 498px;
+    aspect-ratio: 886/498;
+    
 }
 #videoDiv iframe{
     width: 100%;
     height: 100%;
-}
-#getIframe{
-    width: 886px;
 }

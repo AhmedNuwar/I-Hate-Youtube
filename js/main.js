@@ -3,7 +3,6 @@ const iframeInput = document.getElementById('iframeInput');
 const videoDiv = document.getElementById('videoDiv'); 
 const urlHistory = JSON.parse(localStorage.getItem('urlHistory') || '[]');
 const historyDiv = document.getElementById('historyDiv');
-let currentVideo;
 iframeInput.value = lastUrl ? lastUrl : "";
 videoDiv.innerHTML = localStorage.getItem('lastIframe');
 
@@ -24,21 +23,22 @@ function convertToEmbedUrl(youtubeUrl, msg) {
     // console.log('before unshift', urlHistory);
     if (!oldVideo){
         urlHistory.unshift(
-            {id:videoId, url:youtubeUrl,
-                 title: "بلا عنوان",
+            {id:videoId, 
+                url:youtubeUrl,
+                title: "بلا عنوان",
                 stopedAt: '0',
                 date:new Date().toISOString()});
         // console.log('after unshift', urlHistory);
         console.log('video is new');
-        
     }
     else{
         // console.log("index of log: ",urlHistory.indexOf(oldVideo), urlHistory[urlHistory.indexOf(oldVideo)]);
         urlHistory.splice(urlHistory.indexOf(oldVideo), 1)
         urlHistory.unshift(oldVideo);
-        console.log(urlHistory.indexOf(oldVideo),'url already exists');
+        // console.log(urlHistory.indexOf(oldVideo),'url already exists');
     }
     // console.log('after all', urlHistory);
+    currentVideoId = videoId;
     saveHistoryList();
 
     return `https://www.youtube.com/embed/${videoId}`;
@@ -74,7 +74,7 @@ function displayHistory(){
                 </h5>
                 <p>
                 توقف عند: <span class="me-1">${video.stopedAt}</span>
-                <button class="btn btn-sm text-danger" onclick="setStopTime('${video.id}')">    
+                <button class="btn btn-sm text-danger" onclick="setStopTime('${video.url}')">    
                 <i class="fa-solid fa-pen-to-square"></i>
                 </button>
                 </p>
@@ -112,15 +112,18 @@ function changeVideoTitle(id){
         displayHistory();
     }
 }
-function setStopTime(id){
+function setStopTime(url){
      if(urlHistory){
-        let currentVideo = urlHistory.find(v => v.id == id);
+        let currentVideo = urlHistory.find(v => v.url == url);
         let stopTime= prompt('اين توفقت؟');
+        console.log(currentVideo);
+        
         if(stopTime) currentVideo.stopedAt = stopTime;
         urlHistory.splice(urlHistory.indexOf(currentVideo), 1, currentVideo)
         console.log(urlHistory);
         saveHistoryList();
         displayHistory();
+        console.log(currentVideo);
     }
 }
 function deleteFromHistory(id){
