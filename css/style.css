@@ -7,15 +7,45 @@
 body{
     font-family: 'CustomCairo';
 }
-.Mycontainer{
+/* .Mycontainer{
     max-width: 90%;
     margin: auto;
-}
+} */
 #videoDiv{
-    aspect-ratio: 886/498;
-    
+    aspect-ratio: 16/9;
 }
+/* .videoContianer, .historyContianer{
+    width: 90%;
+} */
 #videoDiv iframe{
     width: 100%;
     height: 100%;
 }
+.sleepy{
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 3;
+    
+}
+.drawer{
+    position: relative;
+    /* max-height: 0px !important; */
+    bottom: 60px;
+    overflow: hidden;
+    transition: bottom 1s ease-in-out;
+}
+.stretch{
+    bottom: 0px !important;
+}
+/* .sleepy~.sleepy-indicator{
+    opacity: 1;
+} */
+.drawer-handle:hover{
+    cursor: pointer;
+}
+.sleepy:hover{
+    opacity: 1;
+}
+/* .sleepy:hover ~.sleepy-indicator{
+    opacity: 0;
+} */

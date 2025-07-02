@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        
         يسقط يوتيوب
     </title>
     <link rel="stylesheet" href="css/all.min.css">
@@ -13,13 +12,13 @@
 </head>
 <body class="bg-body">
     <nav class="">
-        <div class="Mycontainer d-flex justify-content-between py-2 mb-3 align-items-center">
+        <div class="container d-flex justify-content-between py-2 mb-3 align-items-center">
             <div class="title">
                 <h1 class="text-danger  text-uppercase fw-bold">
                     <i class="fa-solid fa-hand-fist"></i>
-                    يسقط يوتيوب
+                    <span class="sleepy">يسقط يوتيوب</span>
                 </h1>
-                <h5 class="text-uppercase">استفيد من يوتيوب دون أن يضرك</h5>
+                <h5 class="sleepy">استفيد من يوتيوب دون أن يضرك</h5>
             </div>
             <div class="d-flex align-items-center">
                 <button id="themeToggler" class="btn btn-lg text-light rounded-circle me-auto"
@@ -27,26 +26,38 @@
             </div>
         </div>
     </nav>
-    <div class="Mycontainer">
-        <div id="videoContainer" class="row pb-3 gx-4 ">
-            <div class="col-md-8 d-flex flex-column gap-4 ">
-                <div id="videoDiv" class="rounded-5 shadow overflow-hidden"> 
-                    <iframe width="886" height="498" src="https://www.youtube.com/embed/c0c1NmAfLuM?rel=0" title="اختصارات واسرار هتخليك محترف في استخدام VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div id="getIframe" class="">
-                    <div class="row">
-                        <div class="col-10">
-                            <input type="text" id="iframeInput" placeholder="add Youtube link here" class="form-control rounded-pill border-danger">
+    <div class="container">
+        <div id="videoGrid" class="row pb-3 g-4 justify-content-center">
+            <div class="col-md-11">
+                <div class="videoContianer d-flex flex-column gap-0 mx-auto  p-3 rounded-5 ">
+                     <div class="rounded-5 shadow">
+                        <div id="videoDiv" class="rounded-5  overflow-hidden "> 
+                            <iframe width="886" height="498" src="https://www.youtube.com/embed/c0c1NmAfLuM?rel=0" title="اختصارات واسرار هتخليك محترف في استخدام VS Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
-                        <div class="col-2">
-                            <button class="btn btn-danger rounded-pill w-100"
-                            onclick="showVideo()"> Show Video</button>
+
+                    </div>
+                    <div id="getIframe" class="overflow-hidden pt-3">
+                        <div class="row drawer">
+                            <div class="col-10">
+                                <input type="text" id="iframeInput" placeholder="اضف لينك يوتيوب هنا" 
+                                class="form-control rounded-pill border-danger border-2">
+                            </div>
+                            <div class="col-2">
+                                <button id="showVideoBtn" class="btn btn-danger rounded-pill w-100"
+                                onclick="showVideo()">شاهد</button>
+                            </div>
+                            <div class="btnDiv d-flex justify-content-center pt-2">
+                                <button class="drawer-handle btn btn-sm border-0">
+                                    <i id="drawerArrow" class="fa-solid fa-circle-chevron-down text-danger"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div  class="">
+            
+            <div class="col-md-11">
+                <div  class="historyContianer mx-auto">
                     <div id="historyDiv">
                     </div>
                 </div>

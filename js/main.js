@@ -144,15 +144,46 @@ function switchMode(){
     // console.log(htmlTag.dataset.bs.theme);
     let currentTheme = htmlTag.getAttribute('data-bs-theme');
     let newTheme = "light"
+    let sleepingElements = document.querySelectorAll('.sleepy');
+    let awakeElements = document.querySelectorAll('.was-sleeping');
     if(currentTheme === 'dark'){
         themeToggleBtn.classList.replace('text-light', 'text-warning')
         themeToggleBtn.innerHTML = `<i class="fa-solid fa-lightbulb"></i>`
+        // sleepingElements.forEach(element, ()=>{
+        //     element.classList.remove('sleepy');
+        // })
+        sleepingElements.forEach(function(element){
+            element.classList.replace('sleepy', 'was-sleeping');
+        });
     }
     else if (currentTheme === 'light'){
         newTheme = 'dark';
-        themeToggleBtn.classList.replace('text-warning', 'text-light')
-        themeToggleBtn.innerHTML=`<i class="fa-regular fa-lightbulb"></i>`
+        themeToggleBtn.classList.replace('text-warning', 'text-light');
+        themeToggleBtn.innerHTML=`<i class="fa-regular fa-lightbulb"></i>`;
+        awakeElements.forEach(function(element){
+            element.classList.replace('was-sleeping', 'sleepy');
+        });
     }
     htmlTag.setAttribute('data-bs-theme', newTheme)
 }
 displayHistory();
+
+
+const drawerHandle = document.querySelector('.drawer-handle');
+const drawer = document.querySelector('.drawer');
+const drawerArrow = document.getElementById('drawerArrow');
+drawerHandle.addEventListener('click', function(){
+    drawer.classList.toggle('stretch');
+    if (drawerArrow.classList.contains('fa-circle-chevron-down')) {
+        setTimeout(function(){
+            drawerArrow.classList.replace('fa-circle-chevron-down', 'fa-circle-chevron-up');
+        }, 1000);
+    }   
+    else {
+        
+        setTimeout(function(){
+            drawerArrow.classList.replace('fa-circle-chevron-up', 'fa-circle-chevron-down');
+        }, 1000);
+    }
+        
+});
